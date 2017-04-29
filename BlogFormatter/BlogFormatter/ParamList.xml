@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ParamList>
+  <Params>
+    <Param>
+      <Name>Grafiken</Name>
+      <Regex>\\[img\\](?'Link'.+?)\\[/img\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;img src=\"" + match.Groups["Link"].Value + "\"&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Lange URL mit "Quotes"</Name>
+      <Regex>\\[url=\"(?'Link'.+?)\"\\](?'Text'.+?)\\[/url\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;a href=\"" + match.Groups["Link"].Value + "\"&gt;" + match.Groups["Text"].Value + "&lt;/a&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Lange URL ohne "Quotes"</Name>
+      <Regex>\\[url=(?'Link'.+?)\\](?'Text'.+?)\\[/url\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;a href=\"" + match.Groups["Link"].Value + "\"&gt;" + match.Groups["Text"].Value + "&lt;/a&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Kurze URL</Name>
+      <Regex>\\[url\\](?'Link'.+?)\\[/url\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;a href=\"" + match.Groups["Link"].Value + "\"&gt;" + match.Groups["Link"].Value + "&lt;/a&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>WhatYaGot</Name>
+      <Regex>\\[whatyagot2?=(?'Link'.+?)\\](?'Id'.+?)\\[/whatyagot2?\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;a href=\"http://" + match.Groups["Link"].Value + "/index.php?lastmedia=" + match.Groups["Id"].Value + "\"&gt;&lt;img src=\"http://" + match.Groups["Link"].Value + "/images/thumbnails/" + match.Groups["Id"].Value + "f.jpg\" border=\"0\"&gt;&lt;/img&gt;&lt;/a&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Fetter Text</Name>
+      <Regex>\\[b\\](?'Text'.+?)\\[/b?\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;strong&gt;" + match.Groups["Text"].Value + "&lt;/strong&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Kursiver Text</Name>
+      <Regex>\\[i\\](?'Text'.+?)\\[/i\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;em&gt;" + match.Groups["Text"].Value + "&lt;/em&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Center Text</Name>
+      <Regex>\\[center\\](?'Text'.+?)\\[/center?\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;div style=\"text-align: center;\"&gt;" + match.Groups["Text"].Value + "&lt;/div&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Grinse-Smiley</Name>
+      <Regex>;D</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>":D"</Code>
+    </Param>
+    <Param>
+      <Name>Youtube</Name>
+      <Regex>\\[youtube\\](?'Id'.+?)\\[/youtube\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;br /&gt;&lt;br /&gt;" +  Environment.NewLine + "http://www.youtube.com/watch?v=" + match.Groups["Id"].Value +  Environment.NewLine + "&lt;br /&gt;&lt;br /&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>WhatYaGotBlu</Name>
+      <Regex>\\[whatyagotblu=(?'Link'.+?)\\](?'Id'.+?)\\[/whatyagotblu\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;table border=\"0\"&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\"http://" + match.Groups["Link"].Value + "/index.php?lastmedia=" + match.Groups["Id"].Value + "\"&gt;&lt;img src=\"http://" + match.Groups["Link"].Value + "/gfx/Banner_BluRay.png\" border=\"0\" width=\"180\"&gt;&lt;br&gt;&lt;img src=\"http://" + match.Groups["Link"].Value + "/images/thumbnails/" + match.Groups["Id"].Value + "f.jpg\" border=\"0\"&gt;&lt;/img&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>FingerChew</Name>
+      <Regex>:fingerchew:</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;img src=\"http://www.dvdcollectorsonline.com/Smileys/classic/finger-chew.gif\"&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Drooling</Name>
+      <Regex>:drooling:</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;img src=\"http://www.dvdcollectorsonline.com/Smileys/classic/drool.gif\"&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Devil</Name>
+      <Regex>:devil:</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;img src=\"http://www.dvdcollectorsonline.com/Smileys/classic/smiley_devil.gif\"&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Durchgestrichener Text</Name>
+      <Regex>\\[s\\](?'Text'.+?)\\[/s\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;del&gt;" + match.Groups["Text"].Value + "&lt;/del&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>DailyMotion</Name>
+      <Regex>\\[dailymotion\\](?'Id'.+?)\\[/dailymotion\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"[DAILYMOTION " + match.Groups["Id"].Value + "]"</Code>
+    </Param>
+    <Param>
+      <Name>Spoiler</Name>
+      <Regex>\\[spoiler(=(?'Hint'.+?))?\\](?'Text'.+?)\\[/spoiler\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;strong&gt;Spoiler " + ((match.Groups["Hint"].Success) ? ("\"" + match.Groups["Hint"].Value + "\" ") : String.Empty) + "(mark to read):&lt;/strong&gt;&lt;br&gt;&lt;div style=\"color: #FFFFFF;\"&gt;" + match.Groups["Text"].Value + "&lt;/div&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Spoiler 2</Name>
+      <Regex>\\[spoiler2(=(?'Hint'.+?))?\\](?'Text'.+?)\\[/spoiler2\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;strong&gt;Spoiler " + ((match.Groups["Hint"].Success) ? ("\"" + match.Groups["Hint"].Value + "\" ") : String.Empty) + "(markieren zum lesen):&lt;/strong&gt;&lt;br&gt;&lt;span style=\"color: #FFFFFF;\"&gt;" + match.Groups["Text"].Value + "&lt;/span&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Color</Name>
+      <Regex>\\[color=(?'Color'.+?)\\](?'Text'.+?)\\[/color\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;span style=\"color: " + match.Groups["Color"].Value + ";\"&gt;" + match.Groups["Text"].Value + "&lt;/span&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Quote</Name>
+      <Regex>\\[quote\\](?'Text'.+?)\\[/quote\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;i&gt;Zitat:&lt;/i&gt;" + Environment.NewLine + "&lt;hr /&gt;" + Environment.NewLine + match.Groups["Text"].Value + Environment.NewLine + "&lt;hr /&gt;" + Environment.NewLine</Code>
+    </Param>
+    <Param>
+      <Name>H2-Überschrift</Name>
+      <Regex>\\[size=12pt\\](?'Text'.+?)\\[/size\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;h2&gt;" + match.Groups["Text"].Value + "&lt;/h2&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>List</Name>
+      <Regex>\\[list\\](?'Text'.+?)\\[/list\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;ul&gt;" + match.Groups["Text"].Value + "&lt;/ul&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>ListItem</Name>
+      <Regex>\\[li\\](?'Text'.+?)\\[/li\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;li&gt;" + match.Groups["Text"].Value + "&lt;/li&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>ListItem 2</Name>
+      <Regex>\\[\\*\\](?'Text'.+?)\r\n</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Multiline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;li&gt;" + match.Groups["Text"].Value.TrimEnd() + "&lt;/li&gt;" + Environment.NewLine</Code>
+    </Param>
+    <Param>
+      <Name>Tabelle</Name>
+      <Regex>\\[table\\](?'Text'.+?)\\[/table\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;table&gt;" + match.Groups["Text"].Value + "&lt;/table&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Tabellenzeile</Name>
+      <Regex>\\[tr\\](?'Text'.+?)\\[/tr\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;tr&gt;" + match.Groups["Text"].Value + "&lt;/tr&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Tabellenzelle</Name>
+      <Regex>\\[td\\](?'Text'.*?)\\[/td\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;td&gt;" + match.Groups["Text"].Value + "&lt;/td&gt;"</Code>
+    </Param>
+  </Params>
+</ParamList>
