@@ -14,6 +14,12 @@
       <Code>"&lt;a href=\"" + match.Groups["Link"].Value + "\"&gt;" + match.Groups["Text"].Value + "&lt;/a&gt;"</Code>
     </Param>
     <Param>
+      <Name>Lange URL mit 'Quotes'</Name>
+      <Regex>\\[url=\\'(?'Link'.+?)\\'\\](?'Text'.+?)\\[/url\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;a href=\"" + match.Groups["Link"].Value + "\"&gt;" + match.Groups["Text"].Value + "&lt;/a&gt;"</Code>
+    </Param>
+    <Param>
       <Name>Lange URL ohne "Quotes"</Name>
       <Regex>\\[url=(?'Link'.+?)\\](?'Text'.+?)\\[/url\\]</Regex>
       <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
@@ -58,6 +64,12 @@
     <Param>
       <Name>Youtube</Name>
       <Regex>\\[youtube\\](?'Id'.+?)\\[/youtube\\]</Regex>
+      <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
+      <Code>"&lt;br /&gt;&lt;br /&gt;" +  Environment.NewLine + "http://www.youtube.com/watch?v=" + match.Groups["Id"].Value +  Environment.NewLine + "&lt;br /&gt;&lt;br /&gt;"</Code>
+    </Param>
+    <Param>
+      <Name>Media Youtube</Name>
+      <Regex>\\[media=youtube\\](?'Id'.+?)\\[/media\\]</Regex>
       <RegexOptions>RegexOptions.Compiled | RegexOptions.Singleline | RegexOptions.IgnoreCase</RegexOptions>
       <Code>"&lt;br /&gt;&lt;br /&gt;" +  Environment.NewLine + "http://www.youtube.com/watch?v=" + match.Groups["Id"].Value +  Environment.NewLine + "&lt;br /&gt;&lt;br /&gt;"</Code>
     </Param>

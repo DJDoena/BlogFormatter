@@ -82,6 +82,71 @@ namespace DoenaSoft.BlogFormatter
                 text = (String)(method.Invoke(null, new[] { text }));
             }
 
+            var lines = new List<string>();
+
+            using (var sr = new StringReader(text))
+            {
+                while (sr.Peek() != -1)
+                {
+                    lines.Add(sr.ReadLine());
+                }
+            }
+
+            var paragraphClosed = true;
+
+            string previousLine = null;
+
+            var sb = new StringBuilder();
+
+            foreach (var line in lines)
+            {
+                if (paragraphClosed && !string.IsNullOrWhiteSpace(line))
+                {
+                    if (previousLine != null)
+                    {
+                        sb.AppendLine(previousLine);
+                    }
+
+                    sb.AppendLine("<p>");
+
+                    paragraphClosed = false;
+
+                    previousLine = line;
+
+                    continue;
+                }
+                else if (!paragraphClosed && string.IsNullOrWhiteSpace(line))
+                {
+                    if (previousLine != null)
+                    {
+                        sb.AppendLine(previousLine);
+
+                        previousLine = null;
+                    }
+
+                    sb.AppendLine("</p>");
+
+                    paragraphClosed = true;
+
+                    continue;
+                }
+                else if (previousLine != null)
+                {
+                    sb.Append(previousLine);
+                    sb.AppendLine("<br />");
+
+                    previousLine = line;
+                }
+            }
+
+            if (previousLine != null)
+            {
+                sb.AppendLine(previousLine);
+                sb.AppendLine("</p>");
+            }
+
+            text = sb.ToString();
+
             return (text);
         }
 
