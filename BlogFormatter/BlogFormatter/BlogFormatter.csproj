@@ -14,6 +14,8 @@
     <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>DJDSOFT.ICO</ApplicationIcon>
@@ -80,10 +82,9 @@
     <None Include="SampleOutput.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\ToolBox\ToolBox\ToolBox.csproj">
-      <Project>{4782e10e-b5cc-4c2d-9d7f-d132cb5a50a0}</Project>
-      <Name>ToolBox</Name>
-    </ProjectReference>
+    <PackageReference Include="DoenaSoft.ToolBox">
+      <Version>1.0.7</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
