@@ -51,7 +51,7 @@ namespace DoenaSoft.BlogFormatter
 
                 if (CodeHandler.TryCompile(out errors))
                 {
-                    ExcludeTitles xml = Serializer<ExcludeTitles>.Deserialize("ExcludeTitles.xml");
+                    ExcludeTitles xml = XmlSerializer<ExcludeTitles>.Deserialize("ExcludeTitles.xml");
 
                     excludeTitles = xml.Titles ?? Enumerable.Empty<String>();
                 }

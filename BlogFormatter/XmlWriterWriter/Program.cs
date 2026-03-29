@@ -14,7 +14,7 @@ namespace DoenaSoft.BlogFormatter.XmlWriterWriter
         {
             StringBuilder code = WriteHeader();
 
-            ParamList parameters = Serializer<ParamList>.Deserialize("ParamList.xml");
+            ParamList parameters = XmlSerializer<ParamList>.Deserialize("ParamList.xml");
 
             if (parameters.Params?.Length > 0)
             {

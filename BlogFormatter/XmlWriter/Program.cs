@@ -207,7 +207,7 @@ namespace DoenaSoft.BlogFormatter.XmlWriter
 
             paramList.Params = parameters.ToArray();
 
-            Serializer<ParamList>.Serialize("ParamList.xml", paramList);
+            XmlSerializer<ParamList>.Serialize("ParamList.xml", paramList);
         }
     }
 }

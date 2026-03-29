@@ -156,7 +156,7 @@ namespace DoenaSoft.BlogFormatter
 
         private IEnumerable<MethodInfo> TryCompile()
         {
-            ParamList parameters = Serializer<ParamList>.Deserialize("ParamList.xml");
+            ParamList parameters = XmlSerializer<ParamList>.Deserialize("ParamList.xml");
 
             IEnumerable<MethodInfo> methods = (parameters.Params != null) ? TryCompile(parameters.Params) : (Enumerable.Empty<MethodInfo>());
 
